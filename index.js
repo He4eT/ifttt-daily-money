@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
   res.redirect('http://example.com')
 })
 
-app.get('/result/:key/:day/:money', function (req, res) {
+app.get('/calculate/:key/:day/:money', function (req, res) {
   var money = parseInt(req.money)
   var nextPayDay = parseInt(req.day)
   var iftttKey = req.key
