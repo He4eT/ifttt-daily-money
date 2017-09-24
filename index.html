@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Check your daily money with IFTTT</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #E0E0E0;
+      font-family: 'Roboto', sans-serif;
+      color: #222222;
+      line-height: 1.5;
+    }
+    
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 0;
+    }
+
+    .content .block {
+      background-color: #FAFAFA;
+      padding: 30px 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+    .content li {
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+
+    .chat {
+      margin: 10px 0;
+    }
+
+    .chat .msg {
+      padding: 5px 10px;
+      border: 1px solid #BDBDBD;
+      margin-bottom: 10px;
+      background-color: #EEEEEE;
+    }
+
+    span.info {
+      background-color: #E0E0E0;
+      padding: 3px 8px;
+      margin: 0 3px;
+      border: 1px solid #BDBDBD;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>
+      Easy way to check your daily money with IFTTT
+    </h1>
+    <div class="block">
+      <p>
+        Я ненавижу финансовое планирование, но хочу, чтобы мои ежедневные траты были более равномерными и предсказуемыми.
+      </p>
+      <p>
+        В любой момент времени я знаю количество моих свободных денег и количество дней, оставшихся до получения заработной платы. Этой информации достаточно, чтобы примерно рассчитать, сколько денег я могу тратить ежедневно.
+      </p>
+      <p>
+        Мне не хотелось заводить какой-то отдельный инструмент для такого нехитрого учёта финансов, поэтому я написал небольшое приложение, которое интегрируется с замечательным сервисом <a href="#">IFTTT</a>, взаимодействовать с которым умеет множество привычных приложений, например <a href="#">Telegram</a>.
+      </p>
+    </div>
+    <h2>
+      Выглядит это так:
+    </h2>
+    <div class="block">
+      <div class="chat">
+        <div class="msg">
+          <a href="#">@me</a>: #ihave 10000
+        </div>
+        <div class="msg">
+          <a href="#">@ifttt</a>: Wait a minutes
+        </div>
+        <div class="msg">
+          <a href="#">@ifttt</a>: 588 a day 
+        </div>
+      </div>
+    </div>
+    <h2>Инструкция:</h2>
+    <div class="block">
+      <ol>
+        <li>
+          Зарегистрироваться в <a href="https://ifttt.com/">IFTTT</a>
+        </li>
+        <li>
+          Узнать свой уникальный ключ на странице
+          <a href="https://ifttt.com/services/maker_webhooks/settings">настроек</a>. Выглядит
+          <span class="info">
+            ПРиМерНО_ТаК
+          </span>
+        </li>
+        <li>
+          Создать <a href="https://ifttt.com/create">новый апплет</a> и в секции 
+          <span class="info2">That</span>
+          выбрать <br> 
+          <span class="info">Webhooks / Make a web request</span>
+        </li>
+        <li>
+          В поле <span class="info2">
+            URL
+          </span>
+          указать <br>
+          <span class="info">
+            https://ifttt-daily-money.herokuapp.com/calculate/КЛЮЧ/ДЕНЬ/{{Text}}
+          </span>,
+          <br>
+          подставив в адрес ключ из второго шага и число, когда приходит зарплата
+        </li>
+        <li>
+          Создать ещё один <a href="https://ifttt.com/create">апплет</a>, в секции
+          <span class="info2">This</span>
+          выбрать <br>
+          <span class="info">Webhooks / Receive a web request</span>
+        </li>
+        <li>
+          Заполнить поля <br>
+          <span class="info2">Event name</span>:
+          <span class="info">pocketMoney </span>
+          <br>
+          <span class="info2">Message text</span>:
+          <span class="info">{{Value1}}</span>
+        </li>
+        <li>
+          Готово! Теперь первый апплет будет отправлять запрос в приложение, а второй принимать его ответ
+        </li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
