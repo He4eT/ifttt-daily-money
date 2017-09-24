@@ -1,0 +1,13 @@
+{
+  "name": "ifttt-daily-money",
+  "version": "0.0.1",
+  "description": "Tool for personal finances control with IFTTT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.4"
+  }
+}
