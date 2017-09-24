@@ -19,15 +19,12 @@ app.get('/result/:key/:day/:money', function (req, res) {
   var money = parseInt(req.money)
   var nextPayDay = parseInt(req.day)
   var iftttKey = req.key
+  var daysNumber = getDifference(nextPayDay)
 
-  var params = {
-    days: getDifference(nextPayDay),
-    money: money, 
-    key: iftttKey
-  }
+  var result = checkMoney(money, daysNumber)
 
-  res.send(params)
-  checkMoney(params)
+  sendResult(iftttKey, result)
+  res.send('ok')
 })
 
 app.listen(app.get('port'), function () {
@@ -59,13 +56,17 @@ function getDifference (paydayNumber) {
     ? paydayNumber - day
     : dayInMonth(month, year) - day + paydayNumber
 
-  return numberOfDays
+  return numberOfDays + 1
 }
 
 function dayInMonth (month, year) {
   return 32 - new Date(year, month, 32).getDate()
 }
 
-function checkMoney (args) {
-  console.log({args})
+function checkMoney (money, days) {
+  return Math.floor(money / days)
+}
+
+function sendResult (key, result) {
+  console.log(key, result)
 }
