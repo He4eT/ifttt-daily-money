@@ -1,5 +1,6 @@
 var express = require('express')
 var bodyParser = require('body-parser')
+var axios = require('axios')
 
 var app = express()
 app.set('port', (process.env.PORT || 5000))
@@ -20,6 +21,8 @@ app.get('/result/:key/:day/:money', function (req, res) {
   var nextPayDay = parseInt(req.day)
   var iftttKey = req.key
   var daysNumber = getDifference(nextPayDay)
+
+  console.log('Income:', iftttKey, nextPayDay, money)
 
   var result = checkMoney(money, daysNumber)
 
@@ -68,5 +71,19 @@ function checkMoney (money, days) {
 }
 
 function sendResult (key, result) {
-  console.log(key, result)
+  console.log('Outcome:', key, result)
+
+  var eventName = 'pocketMoney'
+  var path =
+    'https://maker.ifttt.com/trigger/' + eventName +
+    '/with/key/' + key
+
+  axios.get(path, {
+    params: {
+      value1: result
+    }
+  })
+  .then(function (response) {
+    console.log('IFTTT request:', path);
+  })
 }
