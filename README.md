@@ -12,3 +12,7 @@ Params:
 - `current_balance` -- current amount of your free money
 
 This request trigger the `pocketMoney` event on IFTTT with `value1` param. 
+
+## Step-by-step
+- [English version](https://he4et.github.io/ifttt-daily-money/)
+- [Русская версия](https://he4et.github.io/ifttt-daily-money/ru.html)
