@@ -12,10 +12,6 @@ app.param('day', addParam('day'))
 app.param('key', addParam('key'))
 app.param('money', addParam('money'))
 
-app.get('/', function (req, res) {
-  res.redirect('http://example.com')
-})
-
 app.get('/calculate/:key/:day/:money', function (req, res) {
   var money = parseInt(req.money)
   var nextPayDay = parseInt(req.day)
