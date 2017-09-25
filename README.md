@@ -1,6 +1,6 @@
 # ifttt-daily-money
 
-Simple web-service, that calculate amount of money, that you can spend every day considering your payday.
+Simple web-service that calculates the amount of money that you can spend every day considering your payday.
 
 ## Usage:
 
@@ -15,4 +15,4 @@ This request trigger the `pocketMoney` event on IFTTT with `value1` param.
 
 ## Step-by-step
 - [English version](https://he4et.github.io/ifttt-daily-money/)
-- [Русская версия](https://he4et.github.io/ifttt-daily-money/ru.html)
+- [Русская версия](https://he4et.github.io/ifttt-daily-money/step-by-step.ru.html)
