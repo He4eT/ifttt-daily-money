@@ -13,6 +13,14 @@
       color: #222222;
       line-height: 1.5;
     }
+
+    a {
+      font-size: 1.2em;
+      color: #616161;
+      text-decoration: none;
+      padding-bottom: 1px;
+      border-bottom: 2px solid #616161;
+    }
     
     .content {
       max-width: 800px;
@@ -28,19 +36,27 @@
     }
 
     .content li {
-      line-height: 2;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      color: #BDBDBD;
+      font-size: 1.9rem;
+    }
+
+    .content li span {
+      color: #222222;
+      font-size: 1rem;
     }
 
     .chat {
       margin: 10px 0;
-    }
-
-    .chat .msg {
-      padding: 5px 10px;
+      padding: 10px 20px;
       border: 1px solid #BDBDBD;
       margin-bottom: 10px;
       background-color: #EEEEEE;
+      line-height: 2;
+    }
+
+    .chat a {
+      border: none;
     }
 
     span.info {
@@ -54,8 +70,30 @@
 <body>
   <div class="content">
     <h1>
-      Easy way to check your daily money with IFTTT
+      Ненапряжный учёт финансов с IFTTT
     </h1>
+    <h2>
+      Выглядит это так:
+    </h2>
+    <div class="block">
+      <div class="chat">
+        <div class="msg">
+          <a target="blank" href="https://t.me/He4eT/">@me</a>: #ihave 10000
+        </div>
+        <div class="msg">
+          <a target="blank" href="https://t.me/IFTTT/">@ifttt</a>: Wait a minutes
+        </div>
+        <div class="msg">
+          <a target="blank" href="https://t.me/IFTTT/">@ifttt</a>: 588 a day
+        </div>
+      </div>
+    </div>
+
+    <h4>
+      <a href="https://github.com/He4eT/ifttt-daily-money">GitHub</a>
+      <a href="#">English text</a>
+    </h4>
+
     <div class="block">
       <p>
         Я ненавижу финансовое планирование, но хочу, чтобы мои ежедневные траты были более равномерными и предсказуемыми.
@@ -64,72 +102,55 @@
         В любой момент времени я знаю количество моих свободных денег и количество дней, оставшихся до получения заработной платы. Этой информации достаточно, чтобы примерно рассчитать, сколько денег я могу тратить ежедневно.
       </p>
       <p>
-        Мне не хотелось заводить какой-то отдельный инструмент для такого нехитрого учёта финансов, поэтому я написал небольшое приложение, которое интегрируется с замечательным сервисом <a href="#">IFTTT</a>, взаимодействовать с которым умеет множество привычных приложений, например <a href="#">Telegram</a>.
+        Мне не хотелось заводить какой-то отдельный инструмент для такого нехитрого учёта финансов, поэтому я написал небольшое приложение, которое интегрируется с замечательным сервисом <a target="blank" href="https://ifttt.com/">IFTTT</a>, взаимодействовать с которым умеет множество привычных приложений, например <a target="blank" href="https://ifttt.com/telegram">Telegram</a>.
       </p>
     </div>
-    <h2>
-      Выглядит это так:
-    </h2>
-    <div class="block">
-      <div class="chat">
-        <div class="msg">
-          <a href="#">@me</a>: #ihave 10000
-        </div>
-        <div class="msg">
-          <a href="#">@ifttt</a>: Wait a minutes
-        </div>
-        <div class="msg">
-          <a href="#">@ifttt</a>: 588 a day 
-        </div>
-      </div>
-    </div>
+
     <h2>Инструкция:</h2>
     <div class="block">
       <ol>
-        <li>
-          Зарегистрироваться в <a href="https://ifttt.com/">IFTTT</a>
-        </li>
-        <li>
+        <li><span>
+          Зарегистрироваться в <a target="blank" href="https://ifttt.com/">IFTTT</a>
+        </span></li>
+        <li><span>
           Узнать свой уникальный ключ на странице
-          <a href="https://ifttt.com/services/maker_webhooks/settings">настроек</a>. Выглядит
+          <a target="blank" href="https://ifttt.com/services/maker_webhooks/settings">настроек</a>.
+          <br>Выглядит
           <span class="info">
             ПРиМерНО_ТаК
           </span>
-        </li>
-        <li>
-          Создать <a href="https://ifttt.com/create">новый апплет</a> и в секции 
-          <span class="info2">That</span>
-          выбрать <br> 
+        </span></li>
+        <li><span>
+          Создать <a target="blank" href="https://ifttt.com/create">новый апплет</a>
+          и в секции "That" выбрать <br>
           <span class="info">Webhooks / Make a web request</span>
-        </li>
-        <li>
-          В поле <span class="info2">
-            URL
-          </span>
-          указать <br>
+        </span></li>
+        <li><span>
+          В поле URL указать <br>
           <span class="info">
             https://ifttt-daily-money.herokuapp.com/calculate/КЛЮЧ/ДЕНЬ/{{Text}}
           </span>,
           <br>
           подставив в адрес ключ из второго шага и число, когда приходит зарплата
-        </li>
-        <li>
-          Создать ещё один <a href="https://ifttt.com/create">апплет</a>, в секции
-          <span class="info2">This</span>
-          выбрать <br>
+        </span></li>
+        <li><span>
+          Создать ещё один <a target="blank" href="https://ifttt.com/create">апплет</a>,
+          в секции "This" выбрать <br>
           <span class="info">Webhooks / Receive a web request</span>
-        </li>
-        <li>
+        </span></li>
+        <li><span>
           Заполнить поля <br>
           <span class="info2">Event name</span>:
           <span class="info">pocketMoney </span>
           <br>
           <span class="info2">Message text</span>:
           <span class="info">{{Value1}}</span>
-        </li>
-        <li>
-          Готово! Теперь первый апплет будет отправлять запрос в приложение, а второй принимать его ответ
-        </li>
+        </span></li>
+        <li><span>
+          Готово! <br>
+          Теперь первый апплет будет отправлять запрос в приложение, <br>
+          а второй принимать его ответ
+        </span></li>
       </ol>
     </div>
   </div>
