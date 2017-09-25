@@ -1,6 +1,6 @@
 # ifttt-daily-money
 
-Simple web-service, that calculate amount of money, that you can spend every day considering your payday.
+Simple web-service that calculates the amount of money that you can spend every day considering your payday.
 
 ## Usage:
 
