@@ -73,10 +73,10 @@
       <a href="https://github.com/He4eT/ifttt-daily-money">GitHub page</a>
     </h4>
     <h1>
-      Check your daily money with IFTTT
+      Ненапряжный учёт финансов с IFTTT
     </h1>
     <h2>
-      Example:
+      Выглядит это так:
     </h2>
     <div class="block">
       <div class="chat">
@@ -94,64 +94,60 @@
 
     <div class="block">
       <p>
-        I hate financial planning, but I want my daily spending to be more predictable.
+        Я ненавижу финансовое планирование, но хочу, чтобы мои ежедневные траты были более равномерными и предсказуемыми.
       </p>
       <p>
-        At any time, I know the amount of my free money and the number of days remaining until a wage. This information is enough to roughly calculate how much money I can spend on a every day.
+        В любой момент времени я знаю количество моих свободных денег и количество дней, оставшихся до получения заработной платы. Этой информации достаточно, чтобы примерно рассчитать, сколько денег я могу тратить ежедневно.
       </p>
       <p>
-        I want use a familat tool for this simple accounting of finance, so I wrote a small application that integrates with the
-        <a target="blank" href="https://ifttt.com/">IFTTT</a>
-        service, which can interact with a lot of applications and services, for example,
-        <a target="blank" href="https://ifttt.com/telegram">Telegram</a>.
+        Мне не хотелось заводить какой-то отдельный инструмент для такого нехитрого учёта финансов, поэтому я написал небольшое приложение, которое интегрируется с замечательным сервисом <a target="blank" href="https://ifttt.com/">IFTTT</a>, взаимодействовать с которым умеет множество привычных приложений, например <a target="blank" href="https://ifttt.com/telegram">Telegram</a>.
       </p>
     </div>
 
-    <h2>Step-by-step:</h2>
+    <h2>Инструкция:</h2>
     <div class="block">
       <ol>
         <li><span>
-          Log in at <a target="blank" href="https://ifttt.com/">IFTTT</a> service
+          Зарегистрироваться в <a target="blank" href="https://ifttt.com/">IFTTT</a>
         </span></li>
         <li><span>
-          Find your unique key on the
-          <a target="blank" href="https://ifttt.com/services/maker_webhooks/settings">settings page</a>.
-          <br> This key
+          Узнать свой уникальный ключ на странице
+          <a target="blank" href="https://ifttt.com/services/maker_webhooks/settings">настроек</a>.
+          <br>Выглядит
           <span class="info">
-            LoOKsLike_ТhiS
+            ПРиМерНО_ТаК
           </span>
         </span></li>
         <li><span>
-          Create <a target="blank" href="https://ifttt.com/create">new applet</a>
-          and for "That" set <br>
+          Создать <a target="blank" href="https://ifttt.com/create">новый апплет</a>
+          и в секции "That" выбрать <br>
           <span class="info">Webhooks / Make a web request</span>
         </span></li>
         <li><span>
-          In URL field set this string <br>
+          В поле URL указать <br>
           <span class="info">
-            https://ifttt-daily-money.herokuapp.com/calculate/KEY/DAY/{{Text}}
-          </span>.
+            https://ifttt-daily-money.herokuapp.com/calculate/КЛЮЧ/ДЕНЬ/{{Text}}
+          </span>,
           <br>
-          Replace KEY with key from the second step and DAY with your monthly pay day
+          подставив в адрес ключ из второго шага и число, когда приходит зарплата
         </span></li>
         <li><span>
-          Create yet another <a target="blank" href="https://ifttt.com/create">applet</a>
-          and for "This" set <br>
+          Создать ещё один <a target="blank" href="https://ifttt.com/create">апплет</a>,
+          в секции "This" выбрать <br>
           <span class="info">Webhooks / Receive a web request</span>
         </span></li>
         <li><span>
-          Set up next fields <br>
+          Заполнить поля <br>
           <span class="info2">Event name</span>:
           <span class="info">pocketMoney </span>
           <br>
           <span class="info2">Message text</span>:
           <span class="info">{{Value1}}</span>
         </span></li>
-        <li>...</li>
         <li><span>
-          PROFIT! <br>
-          When you trigger your first applet, service will make calculations <br>
-          and second applet will reciev answer
+          Готово! <br>
+          Теперь первый апплет будет отправлять запрос в приложение, <br>
+          а второй принимать его ответ
         </span></li>
       </ol>
     </div>
